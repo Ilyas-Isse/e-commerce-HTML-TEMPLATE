@@ -10,44 +10,11 @@
     </script>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/nav.js"></script>
 </head>
 <body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen">
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 glass transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="font-heading font-bold text-3xl tracking-tight text-slate-900 flex items-center gap-2">
-                        <i data-lucide="sparkles" class="text-brand-600 h-8 w-8"></i> Aura<span class="text-brand-600">.</span>
-                    </a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-slate-600 hover:text-brand-600 font-medium nav-link transition-colors">Home</a>
-                    <a href="shop.html" class="text-slate-600 hover:text-brand-600 font-medium nav-link transition-colors">Shop</a>
-                    <a href="categories.html" class="text-slate-600 hover:text-brand-600 font-medium nav-link transition-colors">Categories</a>
-                    <a href="about.html" class="text-brand-600 font-medium nav-link transition-colors">About</a>
-                </div>
-                <div class="flex items-center space-x-5">
-                    <a href="cart.html" class="text-slate-600 hover:text-brand-600 transition-colors relative group">
-                        <i data-lucide="shopping-bag" class="w-6 h-6"></i>
-                        <span id="cart-badge" class="absolute -top-1 -right-2 bg-amber-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
-                    </a>
-                    <button id="mobile-menu-btn" class="md:hidden text-slate-600 hover:text-brand-600">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full transition-all duration-300 opacity-0 -translate-y-2 shadow-lg">
-            <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="index.html" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-50">Home</a>
-                <a href="shop.html" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-50">Shop</a>
-                <a href="categories.html" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-50">Categories</a>
-                <a href="about.html" class="block px-3 py-3 rounded-md text-base font-medium text-brand-600 bg-brand-50">About</a>
-            </div>
-        </div>
-    </nav>
+    <site-nav></site-nav>
 
     <main class="flex-grow pt-20">
         <!-- Hero -->
