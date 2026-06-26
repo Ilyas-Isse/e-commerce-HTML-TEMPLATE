@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Aura E-Commerce</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' },
+                        accent: { 500: '#f59e0b', 600: '#d97706' }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen">
+    <!-- Navbar placeholder (same as index.html simplified) -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="font-heading font-bold text-3xl tracking-tight text-slate-900 flex items-center gap-2">
+                        <i data-lucide="sparkles" class="text-brand-600 h-8 w-8"></i> Aura<span class="text-brand-600">.</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-slate-600 hover:text-brand-600 font-medium nav-link transition-colors">Home</a>
+                    <a href="shop.html" class="text-brand-600 font-medium">Shop</a>
+                </div>
+                <div class="flex items-center space-x-5">
+                    <a href="cart.html" class="text-slate-600 hover:text-brand-600 transition-colors relative group">
+                        <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                        <span id="cart-badge" class="absolute -top-1 -right-2 bg-accent-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="border-b border-slate-200 pb-5 mb-8 flex flex-col md:flex-row justify-between items-center">
+                <h1 class="text-4xl font-extrabold font-heading text-slate-900 mb-4 md:mb-0">Shop All</h1>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm text-slate-500">Showing 1-12 of 36 products</span>
+                    <select class="bg-white border border-slate-300 text-slate-900 text-sm rounded-md focus:ring-brand-500 focus:border-brand-500 block p-2">
+                        <option>Sort by: Featured</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Newest Arrivals</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Sidebar Filters -->
+                <aside class="w-full md:w-64 flex-shrink-0">
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                        <div class="mb-6">
+                            <h3 class="font-bold text-slate-900 mb-3 uppercase text-sm tracking-wider">Categories</h3>
+                            <ul class="space-y-2 text-sm text-slate-600">
+                                <li><a href="#" class="hover:text-brand-600 font-medium text-brand-600">All Products</a></li>
+                                <li><a href="#" class="hover:text-brand-600 flex justify-between">Accessories <span>(12)</span></a></li>
+                                <li><a href="#" class="hover:text-brand-600 flex justify-between">Apparel <span>(8)</span></a></li>
+                                <li><a href="#" class="hover:text-brand-600 flex justify-between">Footwear <span>(5)</span></a></li>
+                                <li><a href="#" class="hover:text-brand-600 flex justify-between">Tech <span>(11)</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <h3 class="font-bold text-slate-900 mb-3 uppercase text-sm tracking-wider">Price Range</h3>
+                            <div class="flex items-center gap-2">
+                                <input type="number" placeholder="Min" class="w-full p-2 border border-slate-300 rounded text-sm">
+                                <span class="text-slate-500">-</span>
+                                <input type="number" placeholder="Max" class="w-full p-2 border border-slate-300 rounded text-sm">
+                            </div>
+                            <button class="mt-3 w-full bg-slate-100 text-slate-700 py-2 rounded text-sm font-medium hover:bg-slate-200 transition-colors">Apply</button>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Product Grid -->
+                <div class="flex-grow grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Product Items (Repeated conceptually) -->
+                    <!-- Product 1 -->
+                    <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-100 hover-lift group relative flex flex-col">
+                        <div class="relative w-full h-56 bg-slate-100 rounded-lg overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-x-0 bottom-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <button class="add-to-cart-btn w-full bg-slate-900 text-white font-medium py-2 rounded flex items-center justify-center hover:bg-slate-800 text-sm">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4 mr-2"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                        <a href="product.html" class="block flex-grow">
+                            <h3 class="text-md font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Smart Watch</h3>
+                            <span class="text-lg font-bold text-slate-900">$199.00</span>
+                        </a>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-100 hover-lift group relative flex flex-col">
+                        <div class="relative w-full h-56 bg-slate-100 rounded-lg overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-2 left-2"><span class="bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded">SALE</span></div>
+                            <div class="absolute inset-x-0 bottom-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <button class="add-to-cart-btn w-full bg-slate-900 text-white font-medium py-2 rounded flex items-center justify-center hover:bg-slate-800 text-sm">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4 mr-2"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                        <a href="product.html" class="block flex-grow">
+                            <h3 class="text-md font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Premium Headphones</h3>
+                            <div class="flex gap-2 items-center"><span class="text-lg font-bold text-red-500">$249.00</span><span class="text-sm line-through text-slate-400">$349.00</span></div>
+                        </a>
+                    </div>
+                     <!-- Product 3 -->
+                    <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-100 hover-lift group relative flex flex-col">
+                        <div class="relative w-full h-56 bg-slate-100 rounded-lg overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-x-0 bottom-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <button class="add-to-cart-btn w-full bg-slate-900 text-white font-medium py-2 rounded flex items-center justify-center hover:bg-slate-800 text-sm">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4 mr-2"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                        <a href="product.html" class="block flex-grow">
+                            <h3 class="text-md font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Urban Runner Sneakers</h3>
+                            <span class="text-lg font-bold text-slate-900">$129.00</span>
+                        </a>
+                    </div>
+                    <!-- Product 4 -->
+                    <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-100 hover-lift group relative flex flex-col">
+                        <div class="relative w-full h-56 bg-slate-100 rounded-lg overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=800&q=80" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-x-0 bottom-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <button class="add-to-cart-btn w-full bg-slate-900 text-white font-medium py-2 rounded flex items-center justify-center hover:bg-slate-800 text-sm">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4 mr-2"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                        <a href="product.html" class="block flex-grow">
+                            <h3 class="text-md font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Leather Crossbody Bag</h3>
+                            <span class="text-lg font-bold text-slate-900">$89.00</span>
+                        </a>
+                    </div>
+                     <!-- Product 5 -->
+                    <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-100 hover-lift group relative flex flex-col">
+                        <div class="relative w-full h-56 bg-slate-100 rounded-lg overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1572635196237-14b3f281501f?auto=format&fit=crop&w=800&q=80" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-x-0 bottom-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <button class="add-to-cart-btn w-full bg-slate-900 text-white font-medium py-2 rounded flex items-center justify-center hover:bg-slate-800 text-sm">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4 mr-2"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                        <a href="product.html" class="block flex-grow">
+                            <h3 class="text-md font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Classic Sunglasses</h3>
+                            <span class="text-lg font-bold text-slate-900">$149.00</span>
+                        </a>
+                    </div>
+                    <!-- Product 6 -->
+                    <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-100 hover-lift group relative flex flex-col">
+                        <div class="relative w-full h-56 bg-slate-100 rounded-lg overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=800&q=80" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-x-0 bottom-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <button class="add-to-cart-btn w-full bg-slate-900 text-white font-medium py-2 rounded flex items-center justify-center hover:bg-slate-800 text-sm">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4 mr-2"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                        <a href="product.html" class="block flex-grow">
+                            <h3 class="text-md font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Leather Casual Shoes</h3>
+                            <span class="text-lg font-bold text-slate-900">$189.00</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-white py-8 text-center mt-auto">
+        <p class="text-slate-400 text-sm">&copy; 2026 Aura E-Commerce. All rights reserved.</p>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+    <script src="js/main.js"></script>
+</body>
+</html>

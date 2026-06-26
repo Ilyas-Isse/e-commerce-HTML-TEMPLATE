@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura | Modern E-Commerce</title>
+    <meta name="description" content="Discover premium, high-quality products at Aura.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb', // Primary
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                        accent: {
+                            500: '#f59e0b',
+                            600: '#d97706'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="font-heading font-bold text-3xl tracking-tight text-slate-900 flex items-center gap-2">
+                        <i data-lucide="sparkles" class="text-brand-600 h-8 w-8"></i>
+                        Aura<span class="text-brand-600">.</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-brand-600 font-medium">Home</a>
+                    <a href="shop.html" class="text-slate-600 hover:text-brand-600 font-medium nav-link transition-colors">Shop</a>
+                    <a href="#" class="text-slate-600 hover:text-brand-600 font-medium nav-link transition-colors">Categories</a>
+                    <a href="#" class="text-slate-600 hover:text-brand-600 font-medium nav-link transition-colors">About</a>
+                </div>
+
+                <!-- Icons -->
+                <div class="flex items-center space-x-5">
+                    <button class="text-slate-600 hover:text-brand-600 transition-colors">
+                        <i data-lucide="search" class="w-6 h-6"></i>
+                    </button>
+                    <button class="text-slate-600 hover:text-brand-600 transition-colors hidden sm:block">
+                        <i data-lucide="user" class="w-6 h-6"></i>
+                    </button>
+                    <a href="cart.html" class="text-slate-600 hover:text-brand-600 transition-colors relative group">
+                        <i data-lucide="shopping-bag" class="w-6 h-6 group-hover:scale-110 transition-transform"></i>
+                        <span id="cart-badge" class="absolute -top-1 -right-2 bg-accent-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+                    </a>
+                    
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-btn" class="md:hidden text-slate-600 hover:text-brand-600">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full transition-all duration-300 opacity-0 -translate-y-2 shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-3 py-3 rounded-md text-base font-medium text-brand-600 bg-brand-50">Home</a>
+                <a href="shop.html" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-50">Shop</a>
+                <a href="#" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-50">Categories</a>
+                <a href="#" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-50">About</a>
+                <a href="#" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-50 flex items-center">
+                    <i data-lucide="user" class="w-5 h-5 mr-3"></i> Account
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="flex-grow pt-20">
+        <section class="relative bg-white overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 pt-20">
+                    <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                        <div class="sm:text-center lg:text-left">
+                            <span class="inline-block py-1 px-3 rounded-full bg-brand-50 text-brand-600 text-sm font-semibold tracking-wider mb-4 border border-brand-100">NEW ARRIVALS 2026</span>
+                            <h1 class="text-4xl tracking-tight font-extrabold text-slate-900 sm:text-5xl md:text-6xl font-heading">
+                                <span class="block xl:inline">Elevate your</span>
+                                <span class="block text-brand-600 xl:inline">everyday style.</span>
+                            </h1>
+                            <p class="mt-3 text-base text-slate-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                                Discover our curated collection of premium accessories and apparel designed for the modern trendsetter. Uncompromising quality meets exceptional design.
+                            </p>
+                            <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start gap-4">
+                                <div class="rounded-md shadow">
+                                    <a href="shop.html" class="w-full flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-md text-white bg-brand-600 hover:bg-brand-700 transition-all md:py-4 md:text-lg hover:shadow-lg hover:-translate-y-1 transform duration-200">
+                                        Shop Collection
+                                    </a>
+                                </div>
+                                <div class="mt-3 sm:mt-0">
+                                    <a href="#featured" class="w-full flex items-center justify-center px-8 py-4 border border-slate-300 text-base font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 transition-all md:py-4 md:text-lg hover:shadow-sm">
+                                        View Featured
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+            <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 bg-slate-100">
+                <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80" alt="Shopping experience">
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section id="featured" class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-extrabold font-heading text-slate-900 sm:text-4xl">Trending Now</h2>
+                    <p class="mt-4 max-w-2xl text-xl text-slate-500 mx-auto">Handpicked favorites that everyone is talking about.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Product 1 -->
+                    <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 hover-lift group relative flex flex-col">
+                        <div class="relative w-full h-64 bg-slate-100 rounded-xl overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <button class="absolute top-3 right-3 p-2 bg-white rounded-full shadow-sm text-slate-400 hover:text-red-500 transition-colors z-10">
+                                <i data-lucide="heart" class="w-5 h-5"></i>
+                            </button>
+                            <div class="absolute inset-x-0 bottom-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center">
+                                <button class="add-to-cart-btn w-full bg-slate-900 text-white font-medium py-3 rounded-lg flex items-center justify-center hover:bg-slate-800 transition-colors shadow-lg">
+                                    <i data-lucide="shopping-bag" class="w-5 h-5 mr-2"></i> Quick Add
+                                </button>
+                            </div>
+                        </div>
+                        <a href="product.html" class="block flex-grow">
+                            <p class="text-sm text-brand-600 font-medium mb-1">Accessories</p>
+                            <h3 class="text-lg font-bold text-slate-900 leading-tight mb-2 group-hover:text-brand-600 transition-colors">Minimalist Smart Watch</h3>
+                            <div class="flex items-center mb-3">
+                                <div class="flex text-accent-500">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 text-slate-300"></i>
+                                </div>
+                                <span class="text-xs text-slate-500 ml-2">(124)</span>
+                            </div>
+                        </a>
+                        <div class="flex items-center justify-between mt-auto pt-2">
+                            <span class="text-xl font-bold text-slate-900">$199.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 hover-lift group relative flex flex-col">
+                        <div class="absolute top-4 left-4 z-10">
+                            <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">SALE</span>
+                        </div>
+                        <div class="relative w-full h-64 bg-slate-100 rounded-xl overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <button class="absolute top-3 right-3 p-2 bg-white rounded-full shadow-sm text-slate-400 hover:text-red-500 transition-colors z-10">
+                                <i data-lucide="heart" class="w-5 h-5"></i>
+                            </button>
+                            <div class="absolute inset-x-0 bottom-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center">
+                                <button class="add-to-cart-btn w-full bg-slate-900 text-white font-medium py-3 rounded-lg flex items-center justify-center hover:bg-slate-800 transition-colors shadow-lg">
+                                    <i data-lucide="shopping-bag" class="w-5 h-5 mr-2"></i> Quick Add
+                                </button>
+                            </div>
+                        </div>
+                        <a href="product.html" class="block flex-grow">
+                            <p class="text-sm text-brand-600 font-medium mb-1">Audio</p>
+                            <h3 class="text-lg font-bold text-slate-900 leading-tight mb-2 group-hover:text-brand-600 transition-colors">Premium Over-Ear Headphones</h3>
+                            <div class="flex items-center mb-3">
+                                <div class="flex text-accent-500">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="text-xs text-slate-500 ml-2">(89)</span>
+                            </div>
+                        </a>
+                        <div class="flex items-center justify-between mt-auto pt-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xl font-bold text-red-500">$249.00</span>
+                                <span class="text-sm text-slate-400 line-through">$349.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 hover-lift group relative flex flex-col">
+                        <div class="relative w-full h-64 bg-slate-100 rounded-xl overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <button class="absolute top-3 right-3 p-2 bg-white rounded-full shadow-sm text-slate-400 hover:text-red-500 transition-colors z-10">
+                                <i data-lucide="heart" class="w-5 h-5"></i>
+                            </button>
+                            <div class="absolute inset-x-0 bottom-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center">
+                                <button class="add-to-cart-btn w-full bg-slate-900 text-white font-medium py-3 rounded-lg flex items-center justify-center hover:bg-slate-800 transition-colors shadow-lg">
+                                    <i data-lucide="shopping-bag" class="w-5 h-5 mr-2"></i> Quick Add
+                                </button>
+                            </div>
+                        </div>
+                        <a href="product.html" class="block flex-grow">
+                            <p class="text-sm text-brand-600 font-medium mb-1">Footwear</p>
+                            <h3 class="text-lg font-bold text-slate-900 leading-tight mb-2 group-hover:text-brand-600 transition-colors">Urban Runner Sneakers</h3>
+                            <div class="flex items-center mb-3">
+                                <div class="flex text-accent-500">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 text-slate-300"></i>
+                                </div>
+                                <span class="text-xs text-slate-500 ml-2">(45)</span>
+                            </div>
+                        </a>
+                        <div class="flex items-center justify-between mt-auto pt-2">
+                            <span class="text-xl font-bold text-slate-900">$129.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 hover-lift group relative flex flex-col">
+                        <div class="relative w-full h-64 bg-slate-100 rounded-xl overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <button class="absolute top-3 right-3 p-2 bg-white rounded-full shadow-sm text-slate-400 hover:text-red-500 transition-colors z-10">
+                                <i data-lucide="heart" class="w-5 h-5"></i>
+                            </button>
+                            <div class="absolute inset-x-0 bottom-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center">
+                                <button class="add-to-cart-btn w-full bg-slate-900 text-white font-medium py-3 rounded-lg flex items-center justify-center hover:bg-slate-800 transition-colors shadow-lg">
+                                    <i data-lucide="shopping-bag" class="w-5 h-5 mr-2"></i> Quick Add
+                                </button>
+                            </div>
+                        </div>
+                        <a href="product.html" class="block flex-grow">
+                            <p class="text-sm text-brand-600 font-medium mb-1">Bags</p>
+                            <h3 class="text-lg font-bold text-slate-900 leading-tight mb-2 group-hover:text-brand-600 transition-colors">Leather Crossbody Bag</h3>
+                            <div class="flex items-center mb-3">
+                                <div class="flex text-accent-500">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="text-xs text-slate-500 ml-2">(210)</span>
+                            </div>
+                        </a>
+                        <div class="flex items-center justify-between mt-auto pt-2">
+                            <span class="text-xl font-bold text-slate-900">$89.00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="shop.html" class="inline-flex items-center justify-center px-6 py-3 border-2 border-brand-600 text-base font-medium rounded-md text-brand-600 bg-transparent hover:bg-brand-600 hover:text-white transition-all duration-300 group">
+                        View All Products
+                        <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Value Proposition -->
+        <section class="py-16 bg-white border-y border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="p-6">
+                        <div class="mx-auto w-16 h-16 bg-brand-50 text-brand-600 rounded-full flex items-center justify-center mb-4">
+                            <i data-lucide="truck" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading mb-2 text-slate-900">Free Shipping</h3>
+                        <p class="text-slate-500">On all orders over $100. Fast and reliable delivery worldwide.</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="mx-auto w-16 h-16 bg-brand-50 text-brand-600 rounded-full flex items-center justify-center mb-4">
+                            <i data-lucide="refresh-cw" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading mb-2 text-slate-900">Easy Returns</h3>
+                        <p class="text-slate-500">30-day hassle-free return policy. We've got you covered.</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="mx-auto w-16 h-16 bg-brand-50 text-brand-600 rounded-full flex items-center justify-center mb-4">
+                            <i data-lucide="shield-check" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading mb-2 text-slate-900">Secure Checkout</h3>
+                        <p class="text-slate-500">100% safe and encrypted payments for your peace of mind.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="index.html" class="font-heading font-bold text-2xl tracking-tight flex items-center gap-2 mb-6 text-white">
+                        <i data-lucide="sparkles" class="text-brand-400 h-6 w-6"></i>
+                        Aura<span class="text-brand-400">.</span>
+                    </a>
+                    <p class="text-slate-400 mb-6">Curating the best products for your modern lifestyle. Quality and design at the forefront.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-semibold text-lg mb-6">Shop</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-slate-400 hover:text-brand-400 transition-colors">New Arrivals</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-brand-400 transition-colors">Best Sellers</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-brand-400 transition-colors">Accessories</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-brand-400 transition-colors">Sale</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-semibold text-lg mb-6">Support</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-slate-400 hover:text-brand-400 transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-brand-400 transition-colors">Shipping</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-brand-400 transition-colors">Returns</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-brand-400 transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-semibold text-lg mb-6">Newsletter</h4>
+                    <p class="text-slate-400 mb-4">Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Enter your email" class="bg-slate-800 text-white px-4 py-2 rounded-l-md focus:outline-none focus:ring-1 focus:ring-brand-500 w-full border border-slate-700">
+                        <button type="submit" class="bg-brand-600 px-4 py-2 rounded-r-md hover:bg-brand-500 transition-colors">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
+                <p>&copy; 2026 Aura E-Commerce. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>
