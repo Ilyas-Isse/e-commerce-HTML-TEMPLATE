@@ -1,27 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            const isHidden = mobileMenu.classList.contains('hidden');
-            if (isHidden) {
-                mobileMenu.classList.remove('hidden');
-                setTimeout(() => {
-                    mobileMenu.classList.remove('opacity-0', '-translate-y-2');
-                    mobileMenu.classList.add('opacity-100', 'translate-y-0');
-                }, 10);
-            } else {
-                mobileMenu.classList.remove('opacity-100', 'translate-y-0');
-                mobileMenu.classList.add('opacity-0', '-translate-y-2');
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                }, 300);
-            }
-        });
-    }
-
     // Add to cart buttons animation
     const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
     const cartBadge = document.getElementById('cart-badge');
